@@ -6,7 +6,7 @@
       "type": "income",
       "category": "venda",
       "price": 14000,
-      "createdAt": "2025-01-28T02:51:02.611Z"
+      "createdAt": "2025-01-27T02:51:02.611Z"
     },
     {
       "id": 2,
@@ -14,7 +14,7 @@
       "type": "outcome",
       "category": "Alimentação",
       "price": 50,
-      "createdAt": "2025-01-28T04:51:00.611Z"
+      "createdAt": "2025-01-27T04:51:00.611Z"
     },
     {
       "id": 3,
@@ -22,7 +22,31 @@
       "type": "outcome",
       "category": "Educação",
       "price": 1980,
-      "createdAt": "2025-01-28T08:51:00.611Z"
+      "createdAt": "2025-01-27T08:51:00.611Z"
+    },
+    {
+      "description": "Desenvolvimento de app",
+      "category": "Venda",
+      "price": 10000,
+      "type": "income",
+      "createdAt": "2025-01-28T16:57:15.285Z",
+      "id": 4
+    },
+    {
+      "description": "Pastel",
+      "category": "Alimentação",
+      "price": 5,
+      "type": "outcome",
+      "createdAt": "2025-01-28T17:04:04.291Z",
+      "id": 5
+    },
+    {
+      "description": "Iogurte de Morango",
+      "category": "Alimentação",
+      "price": 4,
+      "type": "outcome",
+      "createdAt": "2025-01-28T17:12:29.319Z",
+      "id": 6
     }
   ]
 }

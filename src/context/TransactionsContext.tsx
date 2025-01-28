@@ -10,15 +10,22 @@ interface Transaction {
   createdAt: string;
 }
 
+interface CreateTransactionImput {
+  description: string;
+  price: number;
+  category: string;
+  type: "income" | "outcome";
+}
+
 interface TransactionContexType {
   transactions: Transaction[];
   fetchTransaction: (query?: string) => Promise<void>;
+  createTransaction: (data: CreateTransactionImput) => Promise<void>;
 }
 
 interface TransactionProviderProps {
   children: ReactNode;
 }
-
 // eslint-disable-next-line react-refresh/only-export-components
 export const TransactionsContext = createContext({} as TransactionContexType);
 
@@ -28,6 +35,8 @@ export const TransactionProvider = ({ children }: TransactionProviderProps) => {
   const fetchTransaction = async (query?: string) => {
     const response = await api.get("/transactions", {
       params: {
+        _sort: "createdAt",
+        _order: "desc",
         q: query,
       },
     });
@@ -35,11 +44,27 @@ export const TransactionProvider = ({ children }: TransactionProviderProps) => {
     setTransactions(response.data);
   };
 
+  const createTransaction = async (data: CreateTransactionImput) => {
+    const { description, category, price, type } = data;
+
+    const respose = await api.post("/transactions", {
+      description,
+      category,
+      price,
+      type,
+      createdAt: new Date(),
+    });
+
+    setTransactions((state) => [...state, respose.data]);
+  };
+
   useEffect(() => {
     fetchTransaction();
   }, []);
   return (
-    <TransactionsContext.Provider value={{ transactions, fetchTransaction }}>
+    <TransactionsContext.Provider
+      value={{ transactions, fetchTransaction, createTransaction }}
+    >
       {children}
     </TransactionsContext.Provider>
   );
