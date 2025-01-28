@@ -2,7 +2,7 @@ import { Header } from "../../components/Header";
 import { Summary } from "../../components/Summary";
 import { useTransaction } from "../../hooks/useTransaction";
 import { dateFormatter, priceFormatter } from "../../utils/formatter";
-import { SearchForm } from "./components";
+import { SearchForm } from "./components/SearchForm";
 
 import * as S from "./styles";
 
