@@ -1,50 +1,88 @@
-# React + TypeScript + Vite
+# DT Money
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+DT Money é uma aplicação de controle financeiro pessoal que permite registrar entradas, saídas e categorizar transações. Com um design simples e funcional, é ideal para quem deseja monitorar e organizar suas finanças de forma eficiente.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Funcionalidades
 
-## Expanding the ESLint configuration
+- **Cadastro de transações:** Registre entradas e saídas financeiras, incluindo descrição, valor, categoria e tipo (income ou outcome).
+- **Resumo financeiro:** Visualize o saldo total, entradas e saídas em um resumo dinâmico.
+- **Busca por transações:** Utilize um campo de busca para filtrar transações por descrições e categorias.
+- **Interação dinâmica:** Interface responsiva e intuitiva utilizando Radix UI Dialog e Styled Components.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+---
 
-- Configure the top-level `parserOptions` property like this:
+## Tecnologias Utilizadas
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **React:** Para construção de componentes e gerenciamento de estado.
+- **Styled Components:** Para estilização baseada em temas dinâmicos.
+- **Radix UI:** Implementação de modais acessíveis e personalizáveis.
+- **React Hook Form:** Para manipulação de formulários e validação utilizando Zod.
+- **Axios:** Consumo de API para manipulação de transações.
+- **Json-Server:** Simulação de API REST para desenvolvimento local.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+---
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Estrutura de Diretórios
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- **components:** Contém os componentes reutilizáveis, como o Header, Summary e modais.
+- **context:** Configuração de contextos React, incluindo o TransactionsContext.
+- **hooks:** Contém hooks customizados, como o `useSummary`.
+- **pages:** Contém as páginas principais da aplicação.
+- **styles:** Estilizações globais e temáticas.
+- **utils:** Funções utilitárias como formatadores de preços e datas.
+
+---
+
+## Como Executar o Projeto
+
+### Requisitos
+
+- Node.js
+- Gerenciador de pacotes (npm ou yarn)
+
+### Passos
+
+1. Clone o repositório:
+
+   ```bash
+   git clone https://github.com/seu-usuario/dt-money.git
+   ```
+
+2. Navegue para o diretório do projeto:
+
+   ```bash
+   cd dt-money
+   ```
+
+3. Instale as dependências:
+
+   ```bash
+   npm install
+   # ou
+   yarn
+   ```
+
+4. Inicie o servidor de desenvolvimento:
+
+   ```bash
+   npm run dev
+   # ou
+   yarn dev
+   ```
+
+5. Inicie o servidor de API local:
+
+   ```bash
+   npm run dev:server
+   # ou
+   yarn dev:server
+   ```
+
+6. Acesse o projeto em seu navegador no endereço:
+   ```
+   http://localhost:5173
+   ```
+
+---
